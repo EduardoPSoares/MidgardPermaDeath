@@ -1,0 +1,344 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║           MIDGARD PERMADEATH - CONFIGURATION                 ║
+# ║              Sistema de Morte Permanente                     ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# ════════════════════════════════════════════════════════════════
+#                      CONTROLE DE PERMADEATH
+# ════════════════════════════════════════════════════════════════
+permadeath:
+  # Ativa ou desativa o sistema de Permadeath globalmente
+  enabled: true
+  
+  # Lista de regiões do WorldGuard onde o Permadeath é DESATIVADO (Safe Zones)
+  # Jogadores que morrerem nestas regiões não serão banidos/espectadores
+  disabled-regions:
+  - ''
+
+# ════════════════════════════════════════════════════════════════
+#                      CONFIGURAÇÕES GERAIS
+# ════════════════════════════════════════════════════════════════
+
+# Configurações do Replay
+replay:
+  # Ativa ou desativa a gravação de fundo automaticamente ao iniciar
+  background-recording-enabled: true
+  # Tempo em segundos para gravar antes da morte
+  time-before: 10
+  # Tempo em segundos para gravar depois da morte
+  time-after: 10
+  # Raio de blocos para gravar entidades ao redor
+  radius: 30
+  # Intervalo de gravação em ticks (mínimo 4 = 5 FPS)
+  # Aumente para 8 ou mais se tiver muitos jogadores (>50) para reduzir lag
+  interval-ticks: 4
+  # Otimização: Ignorar entidades irrelevantes (Itens, XP, Pinturas, etc)
+  ignore-irrelevant-entities: true
+  # Otimização: Ignorar monstros (gravar apenas jogadores)
+  ignore-monsters: false
+  # Distância em blocos para iniciar a gravação (Proximidade)
+  # Grava apenas quando jogadores estão próximos uns dos outros
+  recording-distance: 10
+  # Limpeza Automática: Deletar replays mais antigos que X dias (0 para desativar)
+  retention-days: 7
+  # Integração com Simple Voice Chat
+  # Grava e reproduz áudio de voz dos jogadores durante o replay
+  voice-chat:
+    # Ativa ou desativa a gravação/reprodução de áudio de voz
+    # Requer Simple Voice Chat instalado no servidor e no cliente do viewer
+    enabled: true
+
+# Configurações de Morte
+death:
+  # Estado padrão ao morrer:
+  # VALHALLA - Banido para o mundo dos mortos (padrão)
+  # SPECTATOR - Modo espectador vanilla
+  # GHOST - Modo fantasma (voar, invisível, sem chat)
+  # O purgatorio e tratado separadamente na secao abaixo.
+  default-type: VALHALLA
+
+# Configurações de Valhalla (Mundo dos Mortos)
+valhalla:
+  # Nome do mundo para onde os mortos vão (deve existir)
+  world: world_the_end
+  # Se true, força o modo espectador ao respawnar se estiver morto
+  force-spectator: false
+  # Se true, impede que espectadores saiam do mundo de Valhalla
+  lock-in-world: true
+  # Lista de regiões do WorldGuard onde o espectador pode ficar (vazio = livre no mundo)
+  allowed-regions: []
+
+# Ritual de Ressurreição
+purgatory:
+  # Regra adicional: criminosos mortos vao para o purgatorio
+  enabled: true
+  world: purgatorio
+  force-spectator: false
+  allowed-regions: []
+
+ritual:
+  enabled: false
+  # Item necessário para o ritual
+  item: NETHER_STAR
+  item-name: '&6&lTotem de Odin'
+  # Estrutura necessária (Bloco base 3x3 embaixo do bloco de interação)
+  base-block: GOLD_BLOCK
+  interaction-block: BEACON
+
+# Integração com LuckPerms
+luckperms:
+  group: criminoso
+  duration-hours: 24
+
+# Efeitos Visuais
+effects:
+  raio-na-morte: true
+  lightning-on-death: true
+  global-sound: true
+  floating-skull: true
+
+# ════════════════════════════════════════════════════════════════
+#                      COMANDOS DE RESET
+# ════════════════════════════════════════════════════════════════
+# Comandos executados ao limpar os dados de um jogador (Permadeath)
+# Estes comandos serão executados pelo console
+# Placeholders disponíveis: %player% (Nome), %uuid% (UUID)
+reset-commands:
+- "advancedjobsadmin delete user %player%"
+- "mmocore admin reset all %player%"
+- "eco set %player% 0"
+- "lands admin player %player% delete"
+- "backpack clear %player%"
+- "lands admin player %player% delete confirm"
+- "races reset %player%"
+- "skin clear %player%"
+- "customfishing statistics reset %player%"
+- "quests admin moddata fullreset %player%"
+- "mcpets clearStats %player%"
+
+permanent-reset:
+  # Espera o jogador realmente sair antes de apagar playerdata e stats
+  check-interval-ticks: 10
+  post-logout-delay-ticks: 20
+  commands:
+    - "advancedjobsadmin delete user %player%"
+    - "mmocore admin reset all %player%"
+    - "eco set %player% 0"
+    - "lands admin player %player% delete"
+    - "lands admin player %player% delete confirm"
+    - "backpack clear %player%"
+    - "skin clear %player%"
+    - "races reset %player%"
+    - "customfishing statistics reset %player%"
+    - "quests admin moddata fullreset %player%"
+    - "mcpets clearStats %player%"
+  plugin-data-dirs:
+    - 'MMOCore/userdata'
+    - 'MMOItems/userdata'
+    - 'MMOInventory/userdata'
+    - 'CustomStructures/userdata'
+    - 'AdvancedEnchantments/userdata'
+    - 'Jobs/config/jobs'
+    - 'ShopGUIPlus/players'
+
+# ════════════════════════════════════════════════════════════════
+#                      LOCAIS (Definidos In-Game)
+# ════════════════════════════════════════════════════════════════
+# Use /rdeath setmorte, /rdeath setress e /rdeath setpurgatory para definir esses locais
+
+death-spawn:
+  world: world
+  x: -4644.536119195447
+  y: 775.0
+  z: 4668.590521117354
+  yaw: 1.9458487
+  pitch: 47.099884
+
+respawn:
+  world: world
+  x: -97.5
+  y: 115.0
+  z: 2626.5
+  yaw: -179.85312
+  pitch: -0.15022783
+
+# ════════════════════════════════════════════════════════════════
+#                 MENSAGENS LEGADAS
+# ════════════════════════════════════════════════════════════════
+
+purgatory-spawn:
+  world: world
+  x: 0.0
+  y: 64.0
+  z: 0.0
+  yaw: 0.0
+  pitch: 0.0
+
+# As mensagens ativas agora ficam em messages.yml.
+legacy-messages:
+  death-announcement-purgatory: '&4&l{player} &cfoi arrastado para o &4Purgatorio&c por seus crimes!'
+  purgatory-teleport: '&cVocÃª foi derrotado e enviado para o &4Purgatorio&c.'
+  purgatory-location-invalid: '&cPurgatorio nÃ£o foi encontrado. Contate um administrador.'
+  purgatory-set: '&aPonto do Purgatorio definido com sucesso!'
+  prefix: ''
+  no-permission: '&cᴠᴏᴄê ɴãᴏ ᴛᴇᴍ ᴘᴇʀᴍɪssãᴏ.'
+  
+  # Morte
+  death-title: '&c&lᴠᴏᴄê ᴍᴏʀʀᴇᴜ!'
+  death-subtitle: '&7sᴜᴀ ᴀʟᴍᴀ ᴀɢᴏʀᴀ ᴘᴇʀᴛᴇɴᴄᴇ ᴀ ᴠᴀʟʜᴀʟʟᴀ.'
+  death-kick: '&cᴠᴏᴄê ᴍᴏʀʀᴇᴜ ᴇ ꜰᴏɪ ʙᴀɴɪᴅᴏ ᴘᴀʀᴀ ᴏ ᴍᴜɴᴅᴏ ᴅᴏs ᴍᴏʀᴛᴏs.'
+  death-announcement: '&c&l{player} &cꜰᴏɪ ᴅᴇʀʀᴏᴛᴀᴅᴏ ᴇ sᴜᴀ ᴀʟᴍᴀ ꜰᴏɪ ʟᴇᴠᴀᴅᴀ ᴘᴀʀᴀ ᴠᴀʟʜᴀʟʟᴀ!'
+  death-recorded: '&esᴜᴀ ᴍᴏʀᴛᴇ ꜰᴏɪ ʀᴇɢɪsᴛʀᴀᴅᴀ ɴᴏs ᴘᴇʀɢᴀᴍɪɴʜᴏs ᴅᴇ ᴍɪᴅɢᴀʀᴅ.'
+  death-set: '&aáʀᴇᴀ ᴅᴇ ᴍᴏʀᴛᴇ ᴅᴇꜰɪɴɪᴅᴀ ᴄᴏᴍ sᴜᴄᴇssᴏ.'
+  death-teleport: '&cᴠᴏᴄê ꜰᴏɪ ᴅᴇʀʀᴏᴛᴀᴅᴏ ᴇ ᴇɴᴠɪᴀᴅᴏ ᴘᴀʀᴀ &4ᴠᴀʟʜᴀʟʟᴀ&c.'
+  death-location-invalid: '&cᴠᴀʟʜᴀʟʟᴀ ɴãᴏ ꜰᴏɪ ᴇɴᴄᴏɴᴛʀᴀᴅᴀ. ᴄᴏɴᴛᴀᴛᴇ ᴜᴍ ᴀᴅᴍɪɴɪsᴛʀᴀᴅᴏʀ.'
+  player-not-dead: '&cᴇsᴛᴇ ᴊᴏɢᴀᴅᴏʀ ɴãᴏ ᴇsᴛá ᴍᴏʀᴛᴏ.'
+  info-not-found: '&cɪɴꜰᴏʀᴍᴀçõᴇs ᴅᴇ ᴍᴏʀᴛᴇ ɴãᴏ ᴇɴᴄᴏɴᴛʀᴀᴅᴀs ᴘᴀʀᴀ ᴇsᴛᴇ ᴊᴏɢᴀᴅᴏʀ.'
+  resurrect-usage: '&eᴜsᴏ ᴄᴏʀʀᴇᴛᴏ: &f/ressucitar <jogador>'
+  infomorte-usage: '&eᴜsᴏ ᴄᴏʀʀᴇᴛᴏ: &f/infomorte <jogador>'
+  
+  # Modo Fantasma
+  ghost-enter: '&7ᴠᴏᴄê ᴀɢᴏʀᴀ é ᴜᴍ ꜰᴀɴᴛᴀsᴍᴀ. ᴠᴀɢᴜᴇ ᴘᴇʟᴏ ᴍᴜɴᴅᴏ, ᴍᴀs ɴãᴏ ɪɴᴛᴇʀᴀᴊᴀ.'
+  ghost-chat: '&cꜰᴀɴᴛᴀsᴍᴀ ɴãᴏ ꜰᴀʟᴀ.'
+  
+  # Ressurreição
+  resurrected-title: '&a&lʀᴇssᴜsᴄɪᴛᴀᴅᴏ!'
+  resurrected-subtitle: '&7ʙᴇᴍ-ᴠɪɴᴅᴏ ᴅᴇ ᴠᴏʟᴛᴀ ᴀᴏ ᴍᴜɴᴅᴏ ᴅᴏs ᴠɪᴠᴏs.'
+  resurrected-admin: '&aᴊᴏɢᴀᴅᴏʀ {player} ꜰᴏɪ ʀᴇssᴜsᴄɪᴛᴀᴅᴏ ᴄᴏᴍ sᴜᴄᴇssᴏ.'
+  resurrected-success: '&aᴊᴏɢᴀᴅᴏʀ {player} ʀᴇssᴜsᴄɪᴛᴀᴅᴏ ᴄᴏᴍ sᴜᴄᴇssᴏ!'
+  resurrected-subtitle-player: '&aᴠᴏᴄê ꜰᴏɪ ʀᴇssᴜsᴄɪᴛᴀᴅᴏ! ʙᴇᴍ-ᴠɪɴᴅᴏ ᴅᴇ ᴠᴏʟᴛᴀ ᴀᴏ ᴍᴜɴᴅᴏ ᴅᴏs ᴠɪᴠᴏs.'
+  
+  # Comandos
+  spawn-set: '&aᴘᴏɴᴛᴏ ᴅᴇ sᴘᴀᴡɴ ᴅᴏs ᴍᴏʀᴛᴏs ᴅᴇꜰɪɴɪᴅᴏ.'
+  respawn-set: '&aᴘᴏɴᴛᴏ ᴅᴇ ʀᴇssᴜʀʀᴇɪçãᴏ ᴅᴇꜰɪɴɪᴅᴏ ᴄᴏᴍ sᴜᴄᴇssᴏ!'
+  reload: '&aᴄᴏɴꜰɪɢᴜʀᴀçãᴏ ʀᴇᴄᴀʀʀᴇɢᴀᴅᴀ ᴄᴏᴍ sᴜᴄᴇssᴏ!'
+
+# ════════════════════════════════════════════════════════════════
+#                      MENU VALHALLA
+# ════════════════════════════════════════════════════════════════
+
+menu:
+  title: '&8☠ ᴠᴀʟʜᴀʟʟᴀ - ᴍᴏʀᴛᴏs'
+  size: 54
+  
+  # Menu InfoMorte (/infomorte <jogador>)
+  infomorte:
+    title: '&8☠ ɪɴꜰᴏ ᴍᴏʀᴛᴇ - {player}'
+    size: 27
+  
+  # Menu InfoMorte - Decoração
+  decoracao:
+    enabled: true
+    material: BLACK_STAINED_GLASS_PANE
+    nome: '&r'
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 18, 26]
+  
+  # Menu InfoMorte - Item da Vítima
+  vitima:
+    slot: 11
+    nome: '&c&l☠ ᴠÍᴛɪᴍᴀ'
+    lore:
+      - '&7ᴊᴏɢᴀᴅᴏʀ: &f{player}'
+  
+  # Menu InfoMorte - Item do Tempo
+  tempo:
+    slot: 13
+    nome: '&e&l⌚ ᴍᴏᴍᴇɴᴛᴏ ᴅᴀ ᴍᴏʀᴛᴇ'
+    lore:
+      - '&7ᴅᴀᴛᴀ: &f{date}'
+      - '&7ʜᴏʀᴀ: &f{time}'
+  
+  # Menu InfoMorte - Item do Assassino
+  assassino:
+    slot: 15
+    nome: '&4&l⚔ ᴀssᴀssɪɴᴏ'
+    lore:
+      - '&7ᴀssᴀssɪɴᴏ: &c{killer}'
+  
+  # Menu InfoMorte - Item da Localização
+  localizacao:
+    slot: 22
+    nome: '&a&l⌖ ʟᴏᴄᴀʟ ᴅᴀ ᴍᴏʀᴛᴇ'
+    lore:
+      - '&7ᴍᴜɴᴅᴏ: &f{world}'
+      - '&7x: &f{x} &7y: &f{y} &7z: &f{z}'
+  
+  # Menu InfoMorte - Item do Replay
+  replay:
+    slot: 31
+    nome: '&e&l⏵ ᴀssɪsᴛɪʀ ʀᴇᴘʟᴀʏ'
+    lore:
+      - '&7ᴄʟɪǫᴜᴇ ᴘᴀʀᴀ ᴀssɪsᴛɪʀ ᴏ ʀᴇᴘʟᴀʏ ᴅᴀ ᴍᴏʀᴛᴇ'
+  
+  items:
+    empty:
+      name: '&cɴᴇɴʜᴜᴍ ᴊᴏɢᴀᴅᴏʀ ᴍᴏʀᴛᴏ'
+      lore: []
+    
+    player-head:
+      name: '&c☠ {player}'
+      lore:
+      - ''
+      - '&7ᴅᴀᴛᴀ: &f{date}'
+      - '&7ᴄᴀᴜsᴀ: &f{cause}'
+      - '&7ʟᴏᴄᴀʟ: &f{location}'
+      - ''
+      - '{replay_status}'
+      - '{admin_action}'
+    
+    replay-status:
+      available: '&eᴄʟɪǫᴜᴇ ᴇsǫᴜᴇʀᴅᴏ ᴘᴀʀᴀ ᴀssɪsᴛɪʀ ʀᴇᴘʟᴀʏ'
+      unavailable: '&8ʀᴇᴘʟᴀʏ ɪɴᴅɪsᴘᴏɴíᴠᴇʟ'
+      disabled: '&cʀᴇᴘʟᴀʏ ᴅᴇsᴀᴛɪᴠᴀᴅᴏ'
+    
+    admin-action: '&aᴄʟɪǫᴜᴇ ᴅɪʀᴇɪᴛᴏ ᴘᴀʀᴀ ʀᴇssᴜsᴄɪᴛᴀʀ'
+    delete-action: '&csʜɪꜰᴛ+ᴅɪʀᴇɪᴛᴏ ᴘᴀʀᴀ ᴇxᴄʟᴜɪʀ'
+
+# Configuração do Socket do Bot (Integração Discord)
+bot-socket:
+  enabled: false
+  host: 127.0.0.1
+  port: 25590
+  secret: midgard_secret_key_change_me
+
+# MySQL usado apenas para remover a whitelist controlada pelo proxy
+proxy-whitelist-mysql:
+  enabled: false
+  host: "localhost"
+  port: "3306"
+  database: "midgard"
+  user: "root"
+  password: ""
+  use-ssl: false
+
+# Discord Webhook
+discord:
+  enabled: false
+  webhook-url: ''
+  title: '☠ Morte Registrada'
+  color: '16711680' # Vermelho
+
+# ════════════════════════════════════════════════════════════════
+#                      BANCO DE DADOS (SQLite)
+# ════════════════════════════════════════════════════════════════
+# O banco de dados agora é SQLite local (database.db na pasta do plugin)
+# Não é necessário configurar nada. O arquivo é criado automaticamente.
+
+# ════════════════════════════════════════════════════════════════
+#                      LIMPEZA DE DADOS DE PLUGINS
+# ════════════════════════════════════════════════════════════════
+# Diretórios de dados de plugins que serão limpos ao resetar um jogador
+# Cada entrada é um caminho relativo à pasta de plugins do servidor
+# O arquivo {uuid}.yml ou {uuid}.json será deletado de cada diretório
+plugin-data-dirs:
+  - 'MMOCore/userdata'
+  - 'MMOItems/userdata'
+  - 'MMOInventory/userdata'
+  - 'CustomStructures/userdata'
+  - 'AdvancedEnchantments/userdata'
+  - 'Jobs/config/jobs'
+  - 'ShopGUIPlus/players'
+
+# ════════════════════════════════════════════════════════════════
+#                      DADOS (NÃO EDITAR)
+# ════════════════════════════════════════════════════════════════

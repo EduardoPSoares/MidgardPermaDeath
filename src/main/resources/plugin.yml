@@ -1,0 +1,29 @@
+name: rPermadeath
+version: "1.0.0"
+main: me.ray.rpermadeath.RPermadeath
+api-version: "1.21"
+depend: [LuckPerms]
+softdepend: [ReviveMe, Vault, PlaceholderAPI, MMOCore, WorldGuard, voicechat, MidgardVoice]
+commands:
+  rdeath:
+    description: Comando principal do rPermadeath
+    permission: rpermadeath.use
+    aliases: [rpermadeath]
+  replaytoggle:
+    description: Ativa ou desativa a gravação de replays
+    permission: rpermadeath.admin
+    usage: /replaytoggle
+permissions:
+  rpermadeath.admin:
+    description: Permite configurar áreas e ressuscitar
+    default: op
+  rpermadeath.bypass:
+    description: Ignora a lógica de perma death
+    default: false
+  rpermadeath.replay.watch:
+    description: Permite assistir replays de morte
+    default: op
+  rpermadeath.replay.watch.others:
+    description: Permite assistir replays de outros jogadores
+    default: op
+

@@ -1,0 +1,332 @@
+general:
+  players-only: "&cApenas jogadores podem usar este comando."
+  no-permission: "&cVoce nao tem permissao."
+  player-not-found: "&cJogador nao encontrado."
+  player-not-found-or-offline: "&cJogador nao encontrado ou offline."
+  player-not-dead: "&cEste jogador nao esta morto."
+  command-error: "&cErro ao executar comando: {error}"
+  open-menu-error: "&cNao foi possivel abrir o menu."
+  unknown: "Desconhecido"
+
+death:
+  recorded: "&eSua morte foi registrada nos pergaminhos de Midgard."
+  announcement: "&c&l{player} &cfoi derrotado e enviado para Valhalla!"
+  teleport: "&cVoce foi derrotado e enviado para &4Valhalla&c."
+  location-invalid: "&cValhalla nao foi encontrado. Contate um administrador."
+  revived-player: "&aVoce foi revivido."
+  info-not-found: "&cInformacoes de morte nao encontradas para este jogador."
+  cause-format: "{killer}"
+  location-format: "{world} ({x}, {y}, {z})"
+
+purgatory:
+  announcement: "&4&l{player} &cfoi arrastado para o &4Purgatorio&c por seus crimes!"
+  teleport: "&cVoce foi derrotado e enviado para o &4Purgatorio&c."
+  location-invalid: "&cPurgatorio nao foi encontrado. Contate um administrador."
+
+ghost:
+  enter: "&7Voce agora e um fantasma. Vague pelo mundo, mas nao interaja."
+  chat-blocked: "&cFantasmas nao podem falar."
+  removed-kick: "&aSeu estado de fantasma foi removido. Entre novamente."
+  actionbar: "&7Voce agora e um fantasma"
+
+reset:
+  backup-restored: "&aSeu inventario de backup foi restaurado."
+  permanent-kick: "&cSeu personagem foi resetado permanentemente."
+  deleted-kick: "&cSeu personagem foi excluido permanentemente."
+
+spectator:
+  move-blocked: "&cVoce nao pode sair da area permitida."
+  teleport-blocked: "&cVoce nao pode se teleportar para fora da area permitida."
+
+bounty:
+  crime-line-1: "&4&lCRIMINOSO"
+  crime-line-2: "&cSua recompensa aumentou em &f${amount}&c."
+  crime-line-3: "&cRecompensa atual: &f${amount}"
+  claim-hunter: "&aVoce recebeu &f${amount} &apor derrotar &f{player}&a."
+  claim-broadcast: "&6{hunter} &arecebeu &f${amount} &apor capturar &f{player}&a."
+
+menu:
+  infomorte:
+    hidden-id: "&8ID: {id}"
+  main:
+    info:
+      name: "&6Informacoes"
+      lore:
+        - "&7Jogadores mortos: &f{count}"
+  confirm-delete:
+    title: "&8Confirmar exclusao"
+    target-name: "&c{player}"
+    confirm-name: "&aConfirmar"
+    confirm-lore:
+      - "&7Exclui o personagem"
+      - "&7de forma permanente."
+    cancel-name: "&cCancelar"
+    cancel-lore:
+      - "&7Volta ao menu anterior."
+  replay-list:
+    title: "&8Replays de {player} - Pagina {page}"
+    title-prefix: "Replays de "
+    empty-message: "&cNenhum replay encontrado para este jogador."
+    entry-name: "&eReplay de {date}"
+    entry-lore:
+      - "&7ID: &f{id}"
+      - "&7Clique para assistir."
+    previous: "&ePagina anterior"
+    next: "&eProxima pagina"
+    back: "&cVoltar"
+  revive-selection:
+    title: "&8Tipo de ressurreicao"
+    normal-name: "&aRessuscitar"
+    normal-lore:
+      - "&7Remove o estado de morto"
+      - "&7sem resetar o personagem."
+    reset-name: "&cResetar personagem"
+    reset-lore:
+      - "&7Apaga os dados do personagem"
+      - "&7de forma permanente."
+  revive-confirmation:
+    title: "&8Confirmar ressurreicao"
+    reset-title: "&8Confirmar reset"
+    target-name: "&e{player}"
+    confirm-name: "&aConfirmar"
+    cancel-name: "&cCancelar"
+  listener:
+    invalid-uuid: "&cUUID invalido no item do menu."
+    replay-loading: "&eCarregando replay..."
+    replay-load-error: "&cNao foi possivel carregar o replay."
+    replay-unavailable: "&cReplay indisponivel para este jogador."
+
+ritual:
+  altar-incomplete: "&cO altar esta incompleto. Base necessaria: {block}."
+  invalid-item: "&cO item do ritual e invalido."
+  menu:
+    title: "&8Ritual de Ressurreicao"
+    head-name: "&e{player}"
+    head-lore:
+      - "&7Data: &f{date}"
+      - "&7Assassino: &f{killer}"
+      - "&7Clique para ressuscitar."
+  need-item-in-hand: "&cVoce precisa segurar o item do ritual."
+  need-correct-item: "&cVoce precisa segurar o item correto do ritual."
+  target-already-revived: "&cEste jogador ja foi revivido."
+  broadcast-complete: "&6O ritual foi concluido."
+  broadcast-success: "&a{player} ressuscitou &f{target}&a."
+  invalid-uuid: "&cUUID invalido no ritual."
+
+replay:
+  already-watching: "&cVoce ja esta assistindo um replay."
+  starting: "&eIniciando replay..."
+  world-change-stop: "&eReplay encerrado porque voce saiu do mundo do replay."
+  damage-event: "&c{victim} recebeu {damage} de dano de {damager}."
+  skill-cast: "&e{player} usou &6{skill}"
+  start:
+    world-missing: "&cErro: o mundo da gravacao nao esta carregado."
+    preparing-world: "&ePreparando mundo de replay..."
+    world-create-error: "&cErro ao criar mundo de replay: {error}"
+    world-create-fatal: "&cErro fatal: mundo de replay nao foi criado corretamente."
+    ready: "&aReplay pronto. Use a hotbar para controlar."
+    error: "&cOcorreu um erro ao iniciar o replay."
+  playback:
+    finished: "&eReplay finalizado. Use a hotbar para reiniciar ou sair."
+    internal-error: "&cErro interno no replay. Sessao pausada."
+  controls:
+    forward: "&aAvancado 5 segundos."
+    rewind: "&aRetrocedido 5 segundos."
+    restart: "&aReplay reiniciado."
+    teleported: "&aTeleportado para o jogador."
+    player-not-found-frame: "&cJogador nao encontrado neste frame."
+    speed: "&aVelocidade: {speed}x"
+  bossbar:
+    title: "{icon} Replay - {current} / {total} &8[&f{speed}x&8]"
+    icon:
+      playing: "&6>"
+      paused: "&8||"
+  hotbar:
+    teleport:
+      name: "&bIr ate o jogador"
+      lore:
+        - "&7Teleporta para a visao do jogador."
+    audio:
+      name: "&6Audio do replay"
+      lore:
+        - "&7Abre o painel de audio."
+        - "&7Mute e volume por jogador."
+    rewind:
+      name: "&cVoltar 5s"
+      lore:
+        - "&7Retrocede 5 segundos."
+    restart:
+      name: "&bReiniciar"
+      lore:
+        - "&7Volta para o inicio do replay."
+    play:
+      name: "&aReproduzir"
+      lore:
+        - "&7Retoma a reproducao do replay."
+    pause:
+      name: "&6Pausar"
+      lore:
+        - "&7Pausa o replay."
+    speed:
+      name: "&eVelocidade: &f{speed}x"
+    forward:
+      name: "&aAvancar 5s"
+      lore:
+        - "&7Avanca 5 segundos."
+    exit:
+      name: "&cSair da sessao"
+      lore:
+        - "&7Fecha o replay e volta ao normal."
+  audio:
+    selection-title: "&8Audio do Replay"
+    player-title-prefix: "&8Audio: &f"
+    player-title: "&8Audio: &f{player}"
+    no-players: "&cNenhum jogador disponivel neste frame do replay."
+    status:
+      muted: "&cmutado"
+      active: "&aativo"
+    option-selected-prefix: "&b> "
+    option-default-prefix: "&7"
+    volume-levels:
+      - "Mudo"
+      - "25%"
+      - "50%"
+      - "75%"
+      - "100%"
+    selection:
+      player-name: "&e{player}"
+      player-lore:
+        - "&7Clique para abrir o audio deste jogador."
+        - "&7Volume: &f{volume}%"
+        - "&7Status: {status}"
+      overflow-name: "&6Mais jogadores"
+      overflow-lore:
+        - "&7O frame atual tem mais de 45 jogadores."
+        - "&7Use outro frame para acessar os demais."
+      global-name: "&6Audio global"
+      global-lore:
+        - "&7Volume atual: &f{volume}%"
+        - "&7Escolha um jogador para ajustar volumes."
+    player-head-lore:
+      - "&7Volume individual: &f{playerVolume}%"
+      - "&7Volume global: &f{globalVolume}%"
+      - "&7Status: {status}"
+    legacy:
+      health: "&7Vida: &c{value}"
+      food: "&7Fome: &6{value}"
+      effects: "&7Efeitos:"
+      effect-entry: " &f- {effect}"
+      label: "&6Controle de audio"
+      global-lore: "&7Volume global: &f{volume}%"
+    player-toggle:
+      muted: "&cMutado - clique para desmutar"
+      active: "&aAtivo - clique para mutar"
+    player-volume-option: "{prefix}Jogador: {label}"
+    global-volume-option: "{prefix}Global: {label}"
+    back: "&eVoltar"
+    close: "&cFechar"
+    player-not-found: "&cJogador nao encontrado."
+    player-not-found-frame: "&cJogador nao encontrado neste frame."
+    global-muted: "&cAudio global: mudo"
+    global-volume: "&aAudio global: {volume}%"
+    player-unmuted: "&a{player} desmutado."
+    player-muted: "&c{player} mutado."
+    player-volume-set: "&eVolume: {volume}%"
+
+commands:
+  toggle:
+    enabled: "&aPermadeath global ativado."
+    disabled: "&cPermadeath global desativado."
+  region:
+    usage: "&eUso: /rdeath region <add|remove|list> [regiao]"
+    add-usage: "&eUso: /rdeath region add <regiao>"
+    remove-usage: "&eUso: /rdeath region remove <regiao>"
+    list-header: "&6Regioes desativadas:"
+    list-entry: "&7- &f{region}"
+    added: "&aRegiao adicionada: &f{region}"
+    removed: "&aRegiao removida: &f{region}"
+  set-death:
+    success: "&aArea de morte definida com sucesso."
+  set-respawn:
+    success: "&aPonto de ressurreicao definido com sucesso."
+  set-purgatory:
+    success: "&aPonto do Purgatorio definido com sucesso."
+  reset:
+    usage: "&eUso: /rdeath reset <jogador>"
+    starting: "&eIniciando reset permanente de &f{player}&e..."
+    started: "&aReset permanente iniciado para &f{player}&a."
+    already-running: "&cJa existe um reset em andamento para &f{player}&c."
+  permanent-reset:
+    started: "&aExclusao permanente iniciada para &f{player}&a."
+    already-running: "&cJa existe uma exclusao em andamento para &f{player}&c."
+  ressucitar:
+    usage: "&eUso: /ressucitar <jogador>"
+    blocked-by-replay: "&cNao e possivel ressuscitar um jogador enquanto seu replay esta sendo assistido."
+    success: "&aJogador {player} ressuscitado com sucesso."
+    player-success: "&aVoce foi ressuscitado."
+    admin-success: "&aJogador {player} ressuscitado com sucesso."
+  ungod:
+    usage: "&eUso: /rdeath ungod <jogador|all>"
+    all-success: "&aInvulnerabilidade removida de &f{count} &ajogadores."
+    player-success: "&aInvulnerabilidade removida de &f{player}&a."
+  unghost:
+    usage: "&eUso: /rdeath unghost <jogador>"
+    success: "&aEstado de fantasma removido de &f{player}&a."
+    not-ghost: "&cEste jogador nao esta em modo fantasma."
+  replay-toggle:
+    enabled: "&aGravacao de replay ativada."
+    disabled: "&cGravacao de replay desativada."
+  giveitem:
+    success: "&aItem ritual entregue."
+    invalid-material: "&cMaterial invalido no config do ritual: {material}"
+  infomorte:
+    usage: "&eUso: /infomorte <jogador>"
+    bounty: "&6Recompensa: &f${amount}"
+    header: "&6Informacoes de morte de &f{player}"
+    date: "&7Data: &f{date}"
+    cause: "&7Causa: &f{cause}"
+    location: "&7Local: &f{location}"
+    replay-available: "&aReplay disponivel."
+    replay-unavailable: "&cReplay indisponivel."
+  replay:
+    usage: "&eUso: /rdeath replay <jogador>"
+    players-only: "&cApenas jogadores podem assistir replays."
+    not-found: "&cNenhum replay encontrado."
+    loading: "&eCarregando replay..."
+    load-error: "&cNao foi possivel carregar o replay."
+  bounty:
+    usage: "&eUso: /rdeath bounty <jogador>"
+    has: "&e{player} possui recompensa de &f${amount}&e."
+    none: "&e{player} nao possui recompensa."
+  forcerevive:
+    usage: "&eUso: /rdeath forcerevive <jogador>"
+    success: "&aJogador {player} foi revivido."
+  forcereviveall:
+    none: "&eNao ha jogadores mortos."
+    success: "&a{count} jogadores foram revividos."
+  reload:
+    success: "&aConfiguracao recarregada com sucesso."
+    error: "&cErro ao recarregar: {error}"
+  dbreconnect:
+    starting: "&eReconectando ao banco de dados..."
+    success: "&aReconexao com o banco concluida."
+    failed: "&cFalha ao reconectar com o banco."
+  help:
+    common:
+      - "&6/rdeath menu &7- abre o menu principal"
+      - "&6/rdeath bounty <jogador> &7- consulta recompensa"
+    admin:
+      - "&6/rdeath setmorte &7- define Valhalla"
+      - "&6/rdeath setress &7- define ressurreicao"
+      - "&6/rdeath setpurgatory &7- define o Purgatorio"
+      - "&6/rdeath reset <jogador> &7- reseta permanentemente"
+      - "&6/rdeath ressucitar <jogador> &7- revive jogador"
+      - "&6/rdeath infomorte <jogador> &7- mostra dados da morte"
+      - "&6/rdeath replaytoggle &7- ativa/desativa gravacao"
+      - "&6/rdeath toggle &7- ativa/desativa permadeath"
+      - "&6/rdeath region <add|remove|list> &7- gerencia safe zones"
+      - "&6/rdeath reload &7- recarrega o plugin"
+    replay:
+      - "&6/rdeath replay <jogador> &7- assistir replay"
+    footer:
+      - "&8------------------------------"
