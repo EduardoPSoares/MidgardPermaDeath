@@ -1,5 +1,9 @@
 # rPermadeath
 
+![Java](https://img.shields.io/badge/Java-21-E76F00?logo=openjdk&logoColor=white)
+![Paper](https://img.shields.io/badge/Paper-1.21-2F80ED)
+![License](https://img.shields.io/github/license/EduardoPSoares/MidgardPermaDeath)
+
 Plugin de morte permanente para servidores de roleplay (Paper), com replay da morte do jogador.
 
 ## Destaques
